@@ -1,2 +1,4 @@
-# PHPTest
-The Force will be with you. Always!
+PHPTest
+=======
+
+A Symfony project created on January 19, 2016, 11:16 am.
