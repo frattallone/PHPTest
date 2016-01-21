@@ -3,9 +3,11 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+
 
 use AppBundle\Validator\Constraints as AppAssert;
 
@@ -49,6 +51,14 @@ class Product
 	 * @AppAssert\ContainsAtLeastOneWord
      */
     protected $tags;	
+	
+    /**
+     * @var \DateTime $created
+     *
+     * @Gedmo\Timestampable(on="create")
+     * @ORM\Column(type="datetime")
+     */
+    private $created;	
 
 
     /**
@@ -132,6 +142,30 @@ class Product
     {
         return $this->tags;
     }
+	
+    /**
+     * Set created
+     *
+     * @param datetime $created
+     *
+     * @return Product
+     */
+    public function setCreated($created)
+    {
+        $this->created = $created;
+
+        return $this;
+    }
+
+    /**
+     * Get created
+     *
+     * @return datetime
+     */
+    public function getCreated()
+    {
+        return $this->created;
+    }	
 	
     /**
      * Sets file.
