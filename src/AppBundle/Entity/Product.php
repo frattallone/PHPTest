@@ -8,12 +8,11 @@ use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
-
 use AppBundle\Validator\Constraints as AppAssert;
-
+use AppBundle\Entity\ProductRepository;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="AppBundle\Entity\ProductRepository")
  * @ORM\Table(name="product")
  */
 class Product

@@ -26,7 +26,7 @@ class ProductController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $products = $em->getRepository('AppBundle:Product')->findAll();
+        $products = $em->getRepository('AppBundle:Product')->findAllOrderedByCreated();
 
         return $this->render('product/index.html.twig', array(
             'products' => $products,
