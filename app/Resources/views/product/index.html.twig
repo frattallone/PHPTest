@@ -3,6 +3,10 @@
 {% block body %}
     <h1>Product list</h1>
 
+	<form method="get">
+	<input type="text" maxlength="255" name="tags" id="product_tags">
+	<input type="submit" value="Filter Products by tag">
+	</form>
     <table>
         <thead>
             <tr>
@@ -10,6 +14,8 @@
                 <th>Name</th>
                 <th>Image</th>
                 <th>Description</th>
+				<th>Tag</th>
+				<th>Created</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -20,6 +26,8 @@
                 <td>{{ product.name }}</td>
                 <td><img src="{{ asset('uploads/documents/' ~ product.path) | imagine_filter('my_show')}}" alt="{{ product.path }}" /></td>
                 <td>{{ product.description }}</td>
+				<td>{{ product.tags }}</td>
+				<td>{{ product.created|date("m/d/Y") }}</td>
                 <td>
                     <ul>
                         <li>

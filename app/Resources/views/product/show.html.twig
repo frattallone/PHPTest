@@ -21,6 +21,14 @@
                 <th>Description</th>
                 <td>{{ product.description }}</td>
             </tr>
+            <tr>
+                <th>tags</th>
+                <td>{{ product.tags }}</td>
+            </tr>
+            <tr>
+                <th>Created</th>
+                <td>{{ product.created|date("m/d/Y") }}</td>
+            </tr>			
         </tbody>
     </table>
 

@@ -19,14 +19,22 @@ class ProductController extends Controller
     /**
      * Lists all Product entities.
      *
-     * @Route("/list", name="product_index")
+     * @Route("/list/", name="product_index")
      * @Method("GET")
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-
-        $products = $em->getRepository('AppBundle:Product')->findAllOrderedByCreated();
+		
+		$tags = $request->query->get('tags', "");
+		
+		if($tags=="")
+		{
+			$products = $em->getRepository('AppBundle:Product')->findAllOrderedByCreated();
+		} else
+		{
+			$products = $em->getRepository('AppBundle:Product')->findAllByTags($tags);
+		}
 
         return $this->render('product/index.html.twig', array(
             'products' => $products,

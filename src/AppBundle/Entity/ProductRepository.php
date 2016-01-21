@@ -13,4 +13,13 @@ class ProductRepository extends EntityRepository
             )
             ->getResult();
     }
+	
+    public function findAllByTags($tags)
+    {
+        return $this->getEntityManager()
+            ->createQuery(
+                'SELECT p FROM AppBundle:Product p where p.tags LIKE \'%'.$tags.'%\' ORDER BY p.created DESC'
+            )
+            ->getResult();
+    }
 }
