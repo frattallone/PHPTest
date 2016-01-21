@@ -7,6 +7,8 @@ use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
+use AppBundle\Validator\Constraints as AppAssert;
+
 
 /**
  * @ORM\Entity
@@ -44,6 +46,7 @@ class Product
 	
     /**
      * @ORM\Column(type="string", length=255, nullable=false)
+	 * @AppAssert\ContainsAtLeastOneWord
      */
     protected $tags;	
 

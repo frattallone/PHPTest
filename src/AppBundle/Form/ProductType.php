@@ -20,6 +20,7 @@ class ProductType extends AbstractType
                 'data_class' => null
             ))
             ->add('description')
+			->add('tags')
         ;
     }
     
